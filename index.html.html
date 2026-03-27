@@ -1,41 +1,582 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-    <script src="https://adsfire.online/assets/ads/ad.js" class="adScriptClass"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earn $100 Just Click Here</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f0f4f8;
-            display: flex;
-            flex-direction: column; /* Stack elements vertically */
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        
-        h1 {
-            color: #1a3b5d;
-            font-size: 4rem;
-            text-align: center;
-            margin: 20px 0; /* Add some margin */
-            padding: 0 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Serenity | One Page Theme</title>
+  <!-- Google Fonts & simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Optional: Add some spacing around the ad div */
-        .MainAdverTiseMentDiv {
-            margin: 20px 0;
-        }
-    </style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf5;
+      color: #1e2a2f;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* custom smooth container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header & navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: rgba(254, 252, 245, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2b5e4c, #3f7864);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c4b3e;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #0f3b2c;
+      border-bottom: 2px solid #2b5e4c;
+      padding-bottom: 4px;
+    }
+
+    /* buttons & common */
+    .btn-primary {
+      display: inline-block;
+      background-color: #2b5e4c;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.25s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .btn-primary:hover {
+      background-color: #1e4638;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -12px rgba(43,94,76,0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #2b5e4c;
+      color: #2b5e4c;
+      padding: 10px 26px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #2b5e4c;
+      color: white;
+    }
+
+    /* hero section */
+    .hero {
+      padding: 5rem 0 6rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #1c4e3f, #3c7b64);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #4a5b55;
+      max-width: 680px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* features section */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-alt {
+      background-color: #f9f7ef;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1e3a32;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #5f7169;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.1rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2rem 1.8rem;
+      border-radius: 32px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+      border: 1px solid #f0ede5;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 2.8rem;
+      color: #2b5e4c;
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      color: #576e65;
+    }
+
+    /* about / story section */
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .col-text {
+      flex: 1.2;
+    }
+
+    .col-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1e3a32;
+    }
+
+    .col-text p {
+      margin-bottom: 1.2rem;
+      color: #3e5a50;
+    }
+
+    .col-image {
+      flex: 1;
+      background: #e9f0ec;
+      border-radius: 48px;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://placehold.co/600x400/e2ebe7/2b5e4c?text=Serenity+Space');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 16px 30px -12px rgba(0,0,0,0.1);
+    }
+
+    /* gallery / projects minimal */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: 28px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: 0.2s;
+    }
+
+    .gallery-img {
+      height: 220px;
+      background-color: #dde5e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #2b5e4c;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-item h4 {
+      padding: 1rem 1rem 0 1rem;
+      font-size: 1.25rem;
+    }
+
+    .gallery-item p {
+      padding: 0.2rem 1rem 1.2rem 1rem;
+      color: #5b756a;
+    }
+
+    /* testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+      border: 1px solid #efede6;
+    }
+
+    .quote {
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #2d4a3f;
+    }
+
+    .client-name {
+      font-weight: 700;
+      margin-top: 0.8rem;
+      color: #1e3a32;
+    }
+
+    /* contact / cta */
+    .cta-box {
+      background: #e7f0ec;
+      border-radius: 56px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .cta-box h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-box .btn-primary {
+      margin-top: 1rem;
+    }
+
+    /* footer */
+    footer {
+      background: #1e2e28;
+      color: #cbdcd3;
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .social-icons a {
+      color: #cbdcd3;
+      margin-left: 1.2rem;
+      font-size: 1.3rem;
+      transition: 0.2s;
+    }
+
+    .social-icons a:hover {
+      color: white;
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .nav-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+      .two-col {
+        flex-direction: column;
+      }
+      .col-image {
+        width: 100%;
+        min-height: 220px;
+      }
+      .cta-box h3 {
+        font-size: 1.6rem;
+      }
+    }
+
+    /* extra small */
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .container {
+        padding: 0 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Earn $100 Just Click Here</h1>
-    
-    <!-- Ad code placed below the heading -->
-    <div class='MainAdverTiseMentDiv' data-publisher="eyJpdiI6ImF1TGJqMHAxdS8xK2xDNVRqTlUzZWc9PSIsInZhbHVlIjoiN1RPSTFweTBzYVRQNnBDYzlCNFMzUT09IiwibWFjIjoiOGQ4ZjFiY2M5NmM4ODMwZWJlYmQ0YmIxNWQ1MWNlMmI4N2VmMDNmMjE2Yjk3OGFiMzRhN2FkZjczNTQyYWQyOSIsInRhZyI6IiJ9" data-adsize="250x250"></div>
+
+<nav class="navbar">
+  <div class="container nav-wrapper">
+    <div class="logo"><i class="fas fa-leaf" style="color: #2b5e4c; margin-right: 6px;"></i> Serene</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="container hero">
+      <h1>Simple elegance <br> for modern minds</h1>
+      <p>Breathe life into your ideas with a clean, nature-inspired theme. Fast, responsive, and crafted for clarity.</p>
+      <div class="hero-buttons">
+        <a href="#features" class="btn-primary">Explore <i class="fas fa-arrow-down" style="margin-left: 6px;"></i></a>
+        <a href="#contact" class="btn-outline">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">Why choose serenity</h2>
+      <p class="section-sub">Designed for simplicity, performance, and a touch of organic beauty.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Fully Responsive</h3>
+          <p>Looks flawless on any device — from mobile to desktop, every pixel matters.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-palette"></i></div>
+          <h3>Minimalist Aesthetic</h3>
+          <p>Clean typography, subtle gradients, and focus on content readability.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-code"></i></div>
+          <h3>Modern HTML/CSS</h3>
+          <p>Pure, lightweight code with smooth scroll & interactive components.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Nature inspired</h3>
+          <p>Earthy palette that brings calmness and sophistication to your brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Story section -->
+  <section id="about" class="section section-alt">
+    <div class="container two-col">
+      <div class="col-text">
+        <h2><i class="fas fa-feather-alt" style="margin-right: 10px; color:#2b5e4c;"></i> Our story</h2>
+        <p>Serene theme was born from the idea that digital experiences should feel natural, welcoming, and effortless. We believe in the power of simplicity — letting your message shine without distractions.</p>
+        <p>Whether you're a creative, a freelancer, or a small business, this single-page layout gives you everything you need to present your ideas with elegance. No bloat, just meaningful design.</p>
+        <a href="#work" class="btn-primary" style="margin-top: 0.5rem; display: inline-block;">See our work →</a>
+      </div>
+      <div class="col-image" style="background-image: url('https://placehold.co/600x450/eef3f0/2b5e4c?text=Calm+Workspace'); background-size: cover; background-position: center;">
+        <!-- decorative image placeholder -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Work / Gallery section -->
+  <section id="work" class="section">
+    <div class="container">
+      <h2 class="section-title">Recent projects</h2>
+      <p class="section-sub">A glimpse of creative simplicity in action.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-img" style="background-image: url('https://placehold.co/600x400/e2e9e4/2b5e4c?text=Brand+Eclipse'); background-size: cover;"></div>
+          <h4>Brand Eclipse</h4>
+          <p>Visual identity & web presence</p>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img" style="background-image: url('https://placehold.co/600x400/ddebe4/2b5e4c?text=Bloom+Studio'); background-size: cover;"></div>
+          <h4>Bloom Studio</h4>
+          <p>Minimal portfolio concept</p>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-img" style="background-image: url('https://placehold.co/600x400/d8e3dd/2b5e4c?text=Urban+Retreat'); background-size: cover;"></div>
+          <h4>Urban Retreat</h4>
+          <p>Wellness brand storytelling</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Loved by creators</h2>
+      <p class="section-sub">What our community says about the serene experience.</p>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left" style="color: #9bc4b2; font-size: 1.6rem; margin-bottom: 10px; display: inline-block;"></i>
+          <p class="quote">"Absolutely beautiful theme! So lightweight yet full of character. The one-page layout saved me hours of work."</p>
+          <div class="client-name">— Priya K. / Designer</div>
+        </div>
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left" style="color: #9bc4b2; font-size: 1.6rem; margin-bottom: 10px; display: inline-block;"></i>
+          <p class="quote">"Clean, modern, and responsive. The nature palette is refreshing and works perfectly for my freelance site."</p>
+          <div class="client-name">— Marcus T. / Photographer</div>
+        </div>
+        <div class="testimonial-card">
+          <i class="fas fa-quote-left" style="color: #9bc4b2; font-size: 1.6rem; margin-bottom: 10px; display: inline-block;"></i>
+          <p class="quote">"I love how easy it is to customize. The code is straightforward and the visual hierarchy is top-notch."</p>
+          <div class="client-name">— Lina W. / Startup Founder</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & CTA -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="cta-box">
+        <h3>Let's build something meaningful</h3>
+        <p style="max-width: 550px; margin: 0.5rem auto 1.2rem;">Have a project in mind? Reach out and let's create a calm digital space together.</p>
+        <a href="#" class="btn-primary" id="contactBtn"><i class="fas fa-envelope"></i> Send a message</a>
+        <div style="margin-top: 1.8rem; font-size: 0.9rem; color: #446556;">
+          <i class="fas fa-phone-alt"></i> +91 98765 43210 &nbsp;|&nbsp;
+          <i class="fas fa-map-marker-alt"></i> Bangalore / Remote
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div>© 2025 Serene Theme — One page simplicity.</div>
+    <div class="social-icons">
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- simple alert demo for contact (just interactive feedback) -->
+<script>
+  (function() {
+    const contactBtn = document.getElementById('contactBtn');
+    if(contactBtn) {
+      contactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('✨ Thanks for reaching out! (demo action) — You can connect via email: hello@serenetheme.com');
+      });
+    }
+
+    // smooth scroll for all anchor links with hash
+    const allLinks = document.querySelectorAll('a[href^="#"]');
+    allLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const hash = this.getAttribute('href');
+        if (hash === "#" || hash === "") return;
+        const targetElem = document.querySelector(hash);
+        if (targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // update url hash without jump
+          history.pushState(null, null, hash);
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
